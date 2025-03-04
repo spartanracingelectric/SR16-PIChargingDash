@@ -1,0 +1,2 @@
+#Functionality to send data back to Firebase. This file might be unneeded as not a lot is needed, but serparation of concerns is good.
+    #File might be needed if a lot of data sent needs to be catagorized. 
