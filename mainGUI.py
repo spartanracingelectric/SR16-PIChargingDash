@@ -17,10 +17,15 @@ class mainGUI:
             #self.root.attributes('-fullscreen', True)
         self.root.geometry("%dx%d" % (width, height))
 
-        #Styling for individual widgets found in the styles.py
+        #Styling for individual widgets found in the generalStyles.py
         style = getStyle()
 
-        button = ttk.Button(root, text="Styled Button")
+        button = ttk.Button(self.root, text="Styled Button")
         button.pack(pady=10)
+
+        frame = ttk.Frame(self.root)
+        frame.pack()
+        button1 = ttk.Button(frame, text = "hello")
+        button1.pack(padx = 10)
 
         self.root.mainloop()

@@ -1,0 +1,8 @@
+Use can.notifier for nonblocking
+
+Use can.BufferedReader() to store and listen messages in intervals then output all at once?
+    +Stores CAN data if processing is too slow to then be processed later. Idk if it accumulates and overflows later.
+    +less CPU load? --> if read every 0.1 seconds.
+
+
+    Use can.Printer to prototype and test.

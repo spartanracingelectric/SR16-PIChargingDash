@@ -5,7 +5,7 @@ from tkinter import ttk
 
 #staticStyles must be placed within module function and exported. Can't be put in file by itself or creates another window.
 
-#How to write: style.configure(firstArg = tag OR classname, styling)
+#How to write: style.configure(firstArg = tag OR className.widgetType, styling)
 def getStyle():
 
     style = ttk.Style()
@@ -16,5 +16,6 @@ def getStyle():
 
 
     style.configure("TButton", font=("Arial", 14), foreground="white", background="blue")
+    style.configure("TFrame", background = "#939478")
     return style
 

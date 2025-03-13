@@ -1,0 +1,33 @@
+can.Bus(): creates a wrapper around a CAN bus to obtain information from.
+send(): sends CAN data to the bus (CAN data must be formatted certain way, check API)
+recv(): receives can data (can also do "for msg in busName:"); synchronous.
+can.Notifier(bust, [an array of listener/method]): async recv() that listens in the background. nonblocking.
+can.BufferedReader(): 
+
+Below is the "msg attributes" of when the bus receives data.
+-------------------------------------------------------------------------------------------
+arbitration_id--  The CAN message ID--  0x100 (or 256 in decimal)
+data--  The actual data payload (bytearray)--  bytearray(b'\x11\x22\x33\x44')
+dlc--  Data Length Code (number of bytes in data)--  4
+timestamp--  Time when the message was received (seconds since epoch)--  1678901234.5678
+is_extended_id--  True if using 29-bit extended ID, False for 11-bit standard ID--  False
+is_fd--  True if the message is CAN FD (Flexible Data-rate)--  False
+bitrate_switch--  True if CAN FD uses a bitrate switch--  False
+is_remote_frame--  True if it's a remote frame (RTR)--  False
+channel--  Name of the interface receiving the message--  "can0"
+
+
+How to Read CAN dbc.
+-------------------------------------------------------------------------------------------
+BO_ 160 MCM_Temperature_Set_1: 8 MCM
+ SG_ MCM_Gate_Driver_Board_Temp : 48|16@1- (0.1,0) [-3276.8|3276.7] "C" VCU
+ SG_ MCM_Module_C_Temperature : 32|16@1- (0.1,0) [-3276.8|3276.7] "C" VCU
+ SG_ MCM_Module_B_Temperature : 16|16@1- (0.1,0) [-3276.8|3276.7] "C" VCU
+ SG_ MCM_Module_A_Temperature : 0|16@1- (0.1,0) [-3276.8|3276.7] "C" VCU
+
+BO: body, MCM_...: message name, 8: byte data, MCM:Transmitter(ECU name) - Module that sends this message on the CAN bus.
+
+160 (When used by python-can, must be in hex value): stands for CAN_ID
+    -NOTE: lower id, higher prio.
+
+32|16@1- (0.1,0): 32 start bit, 16 bit length, 0.1 divide value (divide by 10), offset 0, brackets contain range. 

@@ -1,0 +1,9 @@
+Commented out Lines: 48 and 791 because they had Sean's relative path?
+
+Line 365 has issues. Invalid syntax at column 2.
+
+Invalid syntax at line 493, column 54: " SG_ BMS_State_Of_Charge : 48|16@1+ (0.1,0) [0|100] ">>!<<%" Vector__XXX""
+
+Invalid syntax at line 494, column 54: " SG_ BMS_State_Of_Health : 32|16@1+ (0.1,0) [0|100] ">>!<<%" Vector__XXX""
+
+"Invalid syntax at line 750, column 99: "CM_ BO_ 2023 "This CAN id is used for communication between the energy meter and the download tool>>!<<.";""
