@@ -15,6 +15,13 @@ is_fd--  True if the message is CAN FD (Flexible Data-rate)--  False
 bitrate_switch--  True if CAN FD uses a bitrate switch--  False
 is_remote_frame--  True if it's a remote frame (RTR)--  False
 channel--  Name of the interface receiving the message--  "can0"
+-------------------------------------------------------------------------------------------
+
+We will probably be using can.BufferedReader() to store CAN information into buffer. 
+This will be transferred into the FireBase (which should store a bulk amount of data in intervals)
+BUT we can also use can.Notifer() which is nonblocking so we can receive data. IDK if it can help with Firebase Storage though.
+    -Do more research here.
+
 
 
 How to Read CAN dbc.
